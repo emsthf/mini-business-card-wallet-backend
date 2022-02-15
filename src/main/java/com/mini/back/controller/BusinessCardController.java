@@ -3,20 +3,24 @@ package com.mini.back.controller;
 import com.mini.back.model.BusinessCard;
 import com.mini.back.service.BusinessCardService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
+@Log
 public class BusinessCardController {
 
     private final BusinessCardService businessCardService;
 
     @PostMapping("/add")
     public void add(@RequestBody BusinessCard businessCard) {
+        log.info("========================================>" + businessCard.getPosition());
         businessCardService.addCard(businessCard);
     }
 

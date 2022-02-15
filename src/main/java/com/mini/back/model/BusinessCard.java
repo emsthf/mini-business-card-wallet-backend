@@ -1,5 +1,6 @@
 package com.mini.back.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,8 @@ import javax.persistence.Id;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 public class BusinessCard {
     @Id
@@ -21,12 +24,4 @@ public class BusinessCard {
     private String phoneNumber;
     private String email;
 
-    @Builder
-    public BusinessCard(Long id, String position, String name, String phoneNumber, String email) {
-        this.id = id;
-        this.position = position;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-    }
 }
